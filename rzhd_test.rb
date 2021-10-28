@@ -162,8 +162,15 @@ train01.route.stations[train01.current_station].trains.each { |train| puts train
 puts ''
 
 # Может перемещаться между станциями, указанными в маршруте
+puts 'Перемещаемся'
 puts "Станция #{train01.route.stations[train01.current_station].station_name}"
+train01.route.stations[train01.current_station].depart_train(train01)
 puts "Станция #{train01.route.stations[train01.forward].station_name}"
+train01.route.stations[train01.current_station].arrive_train(train01)
+puts "Поезда на станции #{train01.route.stations[train01.current_station].station_name}:"
+train01.route.stations[train01.current_station].trains.each { |train| puts train.number }
+puts "Поезда на станции #{train01.route.stations[train01.current_station - 1].station_name}:"
+train01.route.stations[train01.current_station - 1].trains.each { |train| puts train.number }
 puts ''
 
 # Возвращать предыдущую станцию, текущую, следующую, на основе маршрута
