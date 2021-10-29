@@ -55,13 +55,13 @@ puts ''
 
 # Может возвращать список поездов на станции по типу
 puts 'Грузовые поезда на станции ААА:'
-station_aaa.freight_trains.each { |train| puts train.number}
+station_aaa.trains.each { |train| puts train.number if train.type == 'freight' }
 puts 'Пассажирские поезда на станции ААА:'
-station_aaa.passenger_trains.each { |train| puts train.number}
+station_aaa.trains.each { |train| puts train.number if train.type == 'passenger' }
 puts 'Грузовые поезда на станции HHH:'
-station_hhh.freight_trains.each { |train| puts train.number}
+station_hhh.trains.each { |train| puts train.number if train.type == 'freight' }
 puts 'Пассажирские поезда на станции HHH:'
-station_hhh.passenger_trains.each { |train| puts train.number}
+station_hhh.trains.each { |train| puts train.number if train.type == 'passenger' }
 puts ''
 
 # Может отправлять поезда

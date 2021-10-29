@@ -1,31 +1,25 @@
 class Station
-  attr_reader :trains, :station_name, :freight_trains, :passenger_trains
+  attr_reader :trains, :station_name
 
   def initialize(name)
     @station_name = name
     @trains = []
-    @freight_trains = []
-    @passenger_trains = []
   end
 
   def arrive_train(train)
     @trains << train
-    @freight_trains << train if train.type == 'freight'
-    @passenger_trains << train if train.type == 'passenger'
   end
 
   def depart_train(train)
     @trains.delete(train)
-    @freight_trains.delete(train) if @freight_trains.include? train
-    @passenger_trains.delete(train) if @passenger_trains.include? train
   end
 end
 
 class Route
   attr_reader :stations
 
-  def initialize(start_st, end_st)
-    @stations = [start_st, end_st]
+  def initialize(start_station, end_station)
+    @stations = [start_station, end_station]
   end
 
   def add_station(name)
